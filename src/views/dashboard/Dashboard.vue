@@ -21,7 +21,7 @@
         <v-card
           class='py-6 patyson-card-pay'
         >
-          <h3 class='price'>Ціна за один день: 200грн.</h3>
+
           <v-container fluid>
             <v-row align='center'>
               <v-col cols='6'>
@@ -45,9 +45,12 @@
               </v-col>
             </v-row>
           </v-container>
+          <h3 class='price text-start pa-3'>Ціна за один день: 200грн.</h3>
           <h3 class='text-start pa-3'>Загальна вартість: <v-textarea
             auto-grow
             outlined
+            rows="1"
+            row-height="15"
           ></v-textarea></h3>
           <v-row class='d-flex'>
             <v-col
