@@ -9,7 +9,7 @@
         size="120"
         class="me-6"
       >
-        <v-img :src="accountData.avatarImg"></v-img>
+        <v-img :src="accountData.photoURL"></v-img>
       </v-avatar>
 
       <!-- upload photo -->
@@ -89,7 +89,7 @@
             md="6"
           >
             <v-text-field
-              v-model="accountData.phone"
+              v-model="accountData.phoneNumber"
               dense
               label="Номер телефона"
               outlined
@@ -133,7 +133,7 @@
               outlined
               class="mt-4"
               type="reset"
-              @click.prevent="resetForm"
+              @click.prevent=""
             >
               Скасувати
             </v-btn>

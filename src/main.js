@@ -18,7 +18,9 @@ Vue.config.productionTip = false
 
 let app
 auth.onAuthStateChanged(user => {
-  console.log(user)
+  if (user) {
+    store.commit('setCurrentUser', { ...user._delegate })
+  }
   if (!app) {
     app = new Vue({
       router,

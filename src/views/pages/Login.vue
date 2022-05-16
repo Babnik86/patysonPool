@@ -183,7 +183,7 @@ export default {
     },
     continueOTP() {
       confirmationResult.confirm(this.otp)
-        .then((user) => {
+        .then(user => {
           this.setCurrentUser(user.user)
           this.$router.push({ name: 'dashboard' })
         }).catch(error => {
