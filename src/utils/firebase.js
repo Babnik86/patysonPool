@@ -1,9 +1,8 @@
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
 import 'firebase/compat/firestore'
-import 'firebase/compat/app-check'
 
-export const firebaseConfig = {
+const firebaseConfig = {
   apiKey: 'AIzaSyAy_XejtDlFBdhOrzWXWUhWNPdooCKslAU',
   authDomain: 'pool-patyson.firebaseapp.com',
   projectId: 'pool-patyson',
@@ -13,10 +12,7 @@ export const firebaseConfig = {
   measurementId: 'G-236HFVQ2ME',
 }
 
-// Initialize Firebase
-// eslint-disable-next-line import/prefer-default-export
-const app = firebase.initializeApp(firebaseConfig)
-export const db = app.firestore()
-export const auth = app.auth()
-export const appCheck = app.appCheck()
-window.FIREBASE_APPCHECK_DEBUG_TOKEN = true
+firebase.initializeApp(firebaseConfig)
+console.log(firebase)
+export const auth = firebase.auth()
+export const firestore = firebase.firestore()

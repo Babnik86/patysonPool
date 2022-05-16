@@ -9,7 +9,7 @@
         size="120"
         class="me-6"
       >
-        <v-img :src="accountDataLocale.avatarImg"></v-img>
+        <v-img :src="accountData.avatarImg"></v-img>
       </v-avatar>
 
       <!-- upload photo -->
@@ -53,7 +53,7 @@
             cols="12"
           >
             <v-text-field
-              v-model="accountDataLocale.username"
+              v-model="accountData.lastName"
               label="Фамілія"
               dense
               outlined
@@ -65,7 +65,7 @@
             cols="12"
           >
             <v-text-field
-              v-model="accountDataLocale.name"
+              v-model="accountData.firstName"
               label="Ім'я"
               dense
               outlined
@@ -77,7 +77,7 @@
             md="6"
           >
             <v-text-field
-              v-model="accountDataLocale.email"
+              v-model="accountData.email"
               label="E-mail"
               dense
               outlined
@@ -89,39 +89,12 @@
             md="6"
           >
             <v-text-field
-              v-model="accountDataLocale.role"
+              v-model="accountData.phone"
               dense
               label="Номер телефона"
               outlined
             ></v-text-field>
           </v-col>
-<!--
-          <v-col
-            cols="12"
-            md="6"
-          >
-            <v-select
-              v-model="accountDataLocale.status"
-              dense
-              outlined
-              label="Status"
-              :items="status"
-            ></v-select>
-          </v-col>
-
-          <v-col
-            cols="12"
-            md="6"
-          >
-            <v-text-field
-              v-model="accountDataLocale.company"
-              dense
-              outlined
-              label="Company"
-            ></v-text-field>
-          </v-col>-->
-
-          <!-- alert -->
           <v-col cols="12">
             <v-alert
               color="warning"
@@ -173,7 +146,6 @@
 
 <script>
 import { mdiAlertOutline, mdiCloudUploadOutline } from '@mdi/js'
-import { ref } from '@vue/composition-api'
 
 export default {
   props: {
@@ -182,19 +154,8 @@ export default {
       default: () => {},
     },
   },
-  setup(props) {
-    const status = ['Active', 'Inactive', 'Pending', 'Closed']
-
-    const accountDataLocale = ref(JSON.parse(JSON.stringify(props.accountData)))
-
-    const resetForm = () => {
-      accountDataLocale.value = JSON.parse(JSON.stringify(props.accountData))
-    }
-
+  data() {
     return {
-      status,
-      accountDataLocale,
-      resetForm,
       icons: {
         mdiAlertOutline,
         mdiCloudUploadOutline,

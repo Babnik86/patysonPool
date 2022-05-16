@@ -43,7 +43,7 @@
       />
       <nav-menu-link
         title="Налаштування профілю"
-        :to="{ name: 'pages-account-settings'}"
+        :to="{ name: 'account-settings'}"
         :icon="icons.mdiAccountCogOutline"
       ></nav-menu-link>
     </v-list>
@@ -63,7 +63,7 @@ import {
   mdiAccountCogOutline,
   mdiLogoutVariant,
 } from '@mdi/js'
-import { auth } from '@/utils/db'
+import { auth } from '@/main'
 import NavMenuLink from './components/NavMenuLink.vue'
 
 export default {

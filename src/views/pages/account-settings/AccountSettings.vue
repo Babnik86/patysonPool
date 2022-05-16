@@ -1,12 +1,12 @@
 <template>
   <v-card id="account-setting-card">
     <!-- tabs -->
-    <account-settings-account :account-data="accountSettingData.account"></account-settings-account>
-
+    <account-settings-account :account-data="account"></account-settings-account>
   </v-card>
 </template>
 
 <script>
+import { auth } from '@/utils/firebase'
 import AccountSettingsAccount from './AccountSettingsAccount.vue'
 
 export default {
@@ -15,18 +15,14 @@ export default {
   },
   data() {
     return {
-      accountSettingData: {
-        account: {
-          avatarImg: require('@/assets/images/avatars/1.png'),
-          username: 'Smith',
-          name: 'John',
-          email: 'johnSmith@example.com',
-          role: '098-000-00-00',
-          status: 'Active',
-          company: 'Google.inc',
-        },
+      account: {
+        avatarImg: require('@/assets/images/avatars/1.png'),
       },
     }
+  },
+  mounted() {
+    const { phone } = auth.currentUser
+    this.account.phone = phone
   },
 }
 </script>

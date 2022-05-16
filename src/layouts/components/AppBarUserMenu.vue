@@ -92,7 +92,7 @@ import {
   mdiHelpCircleOutline,
   mdiLogoutVariant,
 } from '@mdi/js'
-import { auth } from '@/utils/db'
+import { auth } from '@/utils/firebase'
 
 export default {
   setup() {
@@ -111,10 +111,9 @@ export default {
   },
   methods: {
     logout() {
-      console.log('logout')
       auth.signOut()
         .then(() => {
-          window.location.href = 'https://google.com'
+          this.$router.push({ name: 'login' })
         })
     },
   },

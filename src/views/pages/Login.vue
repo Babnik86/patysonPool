@@ -113,7 +113,8 @@
 
 <script>
 import firebase from 'firebase/compat/app'
-// eslint-disable-next-line object-curly-newline
+import 'firebase/compat/auth'
+import { mapMutations } from 'vuex'
 import {
   mdiFacebook,
   mdiTwitter,
@@ -122,7 +123,7 @@ import {
   mdiEyeOutline,
   mdiEyeOffOutline,
 } from '@mdi/js'
-import { auth } from '@/utils/db'
+import { auth } from '@/utils/firebase'
 
 let confirmationResult = null
 
@@ -166,9 +167,10 @@ export default {
     this.appVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', { size: 'invisible' })
   },
   methods: {
+    ...mapMutations(['setCurrentUser']),
     getOTP() {
       this.loadingGetOTP = true
-      auth.signInWithPhoneNumber(`+38${this.phone.replace( /^\D+/g, '')}`, this.appVerifier)
+      auth.signInWithPhoneNumber(`+38${this.phone.replace(/^\D+/g, '')}`, this.appVerifier)
         .then(res => {
           confirmationResult = res
           this.loadingGetOTP = false
@@ -181,7 +183,8 @@ export default {
     },
     continueOTP() {
       confirmationResult.confirm(this.otp)
-        .then(() => {
+        .then((user) => {
+          this.setCurrentUser(user.user)
           this.$router.push({ name: 'dashboard' })
         }).catch(error => {
           console.log(error)
