@@ -22,7 +22,7 @@
           <v-icon class="d-sm-none">
             {{ icons.mdiCloudUploadOutline }}
           </v-icon>
-          <span class="d-none d-sm-block">Upload new photo</span>
+          <span class="d-none d-sm-block">Завнтажити нове фото</span>
         </v-btn>
 
         <input
@@ -37,10 +37,10 @@
           outlined
           class="mt-5"
         >
-          Reset
+          Скинути
         </v-btn>
         <p class="text-sm mt-5">
-          Allowed JPG, GIF or PNG. Max size of 800K
+          Розширення фото або картинки JPG, GIF чи PNG. Максимальний розмір 800K
         </p>
       </div>
     </v-card-text>
@@ -54,7 +54,7 @@
           >
             <v-text-field
               v-model="accountDataLocale.username"
-              label="Username"
+              label="Фамілія"
               dense
               outlined
             ></v-text-field>
@@ -66,7 +66,7 @@
           >
             <v-text-field
               v-model="accountDataLocale.name"
-              label="Name"
+              label="Ім'я"
               dense
               outlined
             ></v-text-field>
@@ -91,7 +91,7 @@
             <v-text-field
               v-model="accountDataLocale.role"
               dense
-              label="Role"
+              label="Номер телефона"
               outlined
             ></v-text-field>
           </v-col>
@@ -135,13 +135,13 @@
 
                 <div class="ms-3">
                   <p class="text-base font-weight-medium mb-1">
-                    Your email is not confirmed. Please check your inbox.
+                    Ваш e-mail не підтверджено. Будь ласка, перевірте свою пошту.
                   </p>
                   <a
                     href="javascript:void(0)"
                     class="text-decoration-none warning--text"
                   >
-                    <span class="text-sm">Resend Confirmation</span>
+                    <span class="text-sm">Повторно надіслати підтвердження</span>
                   </a>
                 </div>
               </div>
@@ -153,7 +153,7 @@
               color="primary"
               class="me-3 mt-4"
             >
-              Save changes
+              Зберегти зміни
             </v-btn>
             <v-btn
               color="secondary"
@@ -162,7 +162,7 @@
               type="reset"
               @click.prevent="resetForm"
             >
-              Cancel
+              Скасувати
             </v-btn>
           </v-col>
         </v-row>
