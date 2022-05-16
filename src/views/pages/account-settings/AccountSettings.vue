@@ -18,9 +18,9 @@ export default {
       accountSettingData: {
         account: {
           avatarImg: require('@/assets/images/avatars/1.png'),
-          username: 'Бабій',
-          name: 'Ярослав',
-          email: 'johnDoe@example.com',
+          username: 'Smith',
+          name: 'John',
+          email: 'johnSmith@example.com',
           role: '098-000-00-00',
           status: 'Active',
           company: 'Google.inc',

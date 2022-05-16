@@ -22,7 +22,7 @@
           <v-icon class="d-sm-none">
             {{ icons.mdiCloudUploadOutline }}
           </v-icon>
-          <span class="d-none d-sm-block">Завнтажити нове фото</span>
+          <span class="d-none d-sm-block">Завантажити нове фото</span>
         </v-btn>
 
         <input
@@ -95,7 +95,7 @@
               outlined
             ></v-text-field>
           </v-col>
-
+<!--
           <v-col
             cols="12"
             md="6"
@@ -119,7 +119,7 @@
               outlined
               label="Company"
             ></v-text-field>
-          </v-col>
+          </v-col>-->
 
           <!-- alert -->
           <v-col cols="12">

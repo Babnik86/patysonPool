@@ -5,8 +5,9 @@
         d-flex
         cols="6"
       >
-        <v-card class="px-8 pt-12 pb-12">
-          <h4 class="text-center">Введіть номер картки</h4>
+        <v-card class="px-8 pt-12 pb-12 bg-gradient-primary">
+          <h2 class='text-center mb-5'>Patyson Beach Club</h2>
+          <h4 class="text-center mb-2">Введіть номер картки</h4>
           <v-otp-input
             length="10"
             outlined
