@@ -13,7 +13,6 @@ window.FIREBASE_APPCHECK_DEBUG_TOKEN = true
 
 Vue.use(VueMask)
 Vue.use(firestorePlugin)
-
 Vue.config.productionTip = false
 
 let app

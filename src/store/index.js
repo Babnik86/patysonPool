@@ -9,7 +9,13 @@ export default new Vuex.Store({
   },
   mutations: {
     setCurrentUser(state, user) {
-      state.currentUser = user
+      let fields = {};
+      try {
+        fields = JSON.parse(user.displayName)
+      } catch (e) {
+        console.error(e)
+      }
+      state.currentUser = { ...user, ...fields }
     },
   },
   actions: {},
