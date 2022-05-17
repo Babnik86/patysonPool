@@ -125,6 +125,8 @@
             <v-btn
               color="primary"
               class="me-3 mt-4"
+              :loading="saveLoading"
+              @click="updateProfile()"
             >
               Зберегти зміни
             </v-btn>
@@ -146,21 +148,49 @@
 
 <script>
 import { mdiAlertOutline, mdiCloudUploadOutline } from '@mdi/js'
+import { auth } from '@/utils/firebase'
 
 export default {
   props: {
     accountData: {
       type: Object,
-      default: () => {},
+      default: () => {
+      },
     },
   },
   data() {
     return {
+      saveLoading: false,
       icons: {
         mdiAlertOutline,
         mdiCloudUploadOutline,
       },
     }
+  },
+  methods: {
+    updateProfile() {
+      this.saveLoading = true
+      const user = auth.currentUser
+      const {
+        firstName,
+        lastName,
+        email,
+        cardNumber,
+      } = this.accountData
+      user.updateProfile({
+        displayName: JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          cardNumber,
+        }),
+        photoURL: 'https://example.com/jane-q-user/profile.jpg',
+      })
+        .then(userResult => {
+          console.log(userResult)
+          this.saveLoading = false
+        })
+    },
   },
 }
 </script>
