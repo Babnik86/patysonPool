@@ -1,64 +1,61 @@
 <template>
   <div>
-    <v-row class='justify-center'>
+    <v-row class="justify-center">
       <v-col
         d-flex
-        cols='6'
+        cols="6"
       >
-        <v-card class='px-8 pt-12 pb-12 patyson-card'>
-          <h2 class='text-center mb-5'>Patyson Beach Club</h2>
-          <h4 class='text-center mb-2'>Введіть номер картки</h4>
+        <v-card class="px-8 pt-12 pb-12 patyson-card rounded-xl">
+          <p class="card-heading text-center mb-5">Patyson Beach Club</p>
+          <p class="card-text text-center mb-2">Введіть номер картки</p>
           <v-otp-input
-            length='10'
+            length="10"
             outlined
           ></v-otp-input>
         </v-card>
       </v-col>
     </v-row>
-    <v-row class='justify-center'>
-      <v-col cols='6'>
+    <v-row class="justify-center">
+      <v-col cols="6">
 
         <v-card
-          class='py-6 patyson-card-pay'
+          class="py-6 patyson-card-pay rounded-xl"
         >
 
           <v-container fluid>
-            <v-row align='center'>
-              <v-col cols='6'>
-                <h3>
-                  Кількість днів
-                </h3>
+            <v-row align="center">
+              <v-col cols="10">
+                <p class="card-text">
+                  Кількість днів:
+                </p>
               </v-col>
 
-              <v-col cols='6'>
-
-                <v-select
-                  v-model='select'
-                  :items='number'
-                  item-text='state'
-                  item-value='abbr'
-                  label='Select'
-                  persistent-hint
-                  return-object
-                  single-line
-                ></v-select>
+              <v-col cols="2">
+                <v-text-field
+                  type="number"
+                  background-color="white"
+                  class="days-number mx-3 "
+                ></v-text-field>
               </v-col>
             </v-row>
+
           </v-container>
-          <h3 class='price text-start pa-3'>Ціна за один день: 200грн.</h3>
-          <h3 class='text-start pa-3'>Загальна вартість: <v-textarea
-            auto-grow
-            outlined
-            rows="1"
-            row-height="15"
-          ></v-textarea></h3>
-          <v-row class='d-flex'>
-            <v-col
-              cols='4' class='text-end align-self-center'>
-              Оплатити:
-            </v-col>
-            <v-col cols='8' class='py-5 text-center' v-html='html' />
-          </v-row>
+
+          <div CLASS="d-flex">
+            <p class="card-text text-start col-10">Ціна за один день</p>
+            <label class="col-2 text-center white--text" for="">245</label>
+          </div>
+          <div class="d-flex">
+            <p class="card-text text-start col-10">До сплати:</p>
+            <label class="col-2 text-center white--text" for="">245</label>
+          </div>
+
+          <v-col
+            class="d-flex position-relative">
+              <p class="card-text-pay">Сплатити</p>
+              <div class="py-5 text-center col-12" v-html="html" />
+          </v-col>
+
 
         </v-card>
       </v-col>
@@ -72,8 +69,6 @@ import LiqPay from '@/utils/liqpay'
 export default {
   data() {
     return {
-      select: { state: 'Florida' },
-      number: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
       liqpay: null,
       html: null,
     }
@@ -88,19 +83,45 @@ export default {
       description: 'description text',
       order_id: 'order_id_2',
       version: '3',
-      language: 'uk',
+      language: 'ru',
       result_url: 'http://localhost:8080/success',
     })
-      .replace('//static.liqpay.ua/buttons/p1uk.radius.png', 'https://www.liqpay.ua/logo_liqpay_main.svg?v=1651580791759')
   },
 }
 </script>
 <style>
+.card-text-pay {
+  position: absolute;
+  font-size: 30px;
+  padding-right: 10px;
+  background-color: #6ca91c;
+  border-radius: 5px;
+  color: white;
+  margin: 21px 216px 0px;
+  pointer-events: none;
+}
+
+.days-number {
+  border-radius: 10px;
+}
+
+.card-heading {
+  color: white;
+  font-size: 30px;
+}
+
+
+.card-text {
+  color: #ffffff;
+  font-size: 20px;
+}
+
 .patyson-card {
-  background: linear-gradient(240deg, #05ddf1, #f67501 94%)
+
+  background: linear-gradient(240deg, #471469, #032757 94%)
 }
 
 .patyson-card-pay {
-  background: linear-gradient(40deg, #05ddf1, #f67501 94%)
+  background: linear-gradient(40deg, #471469, #032757 94%)
 }
 </style>
